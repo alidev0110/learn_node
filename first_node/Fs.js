@@ -1,13 +1,31 @@
 import fs from "fs";
 
+fs.writeFile("text1.txt", "Hello World" , (err) => {
+  if (err) {
+    console.log(err);
+  }
+});
 
-fs.writeFileSync("text1.txt", "Hello World");
+fs.writeFile("text.txt", "Ali", (err) => {
+  if (err) {
+    console.log(err);
+  }
+});
 
-fs.writeFileSync("text.txt", "Ali");
+fs.appendFile("text.txt", "\nSecond Line", (err) => {
+  if (err) {
+    console.log(err);
+  }
+});
 
-fs.appendFileSync("text.txt", "\nSecond Line");
-
-const data = fs.readFileSync("./text.txt", "utf-8");
+fs.readFile("./text.txt", "utf-8", (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
+});
+console.log("exe");
 
 // fs.unlinkSync("text.txt");
-export default data;
+// export default data;
